@@ -1,0 +1,58 @@
+<div class="container mt-5 pt-5">
+    <div class="w-50 row-cols-1 ">
+        <h2 class="text-center">Register</h2>
+    <form action="/action_page.php" class="" [formGroup]="ReactiveForm" (ngSubmit)="ReactiveFormSubmit()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="name" >
+            <div class="alert-danger p-2"
+            *ngIf="registerFormControl.name.touched && !registerFormControl.name.valid" >
+            <div *ngIf="registerFormControl.name.errors.required" style="color: red;">Name is required.</div> 
+            <div *ngIf="registerFormControl.name.errors.minlength" style="color: red;">Min Length 3.</div>  
+            </div>
+        </div>
+          
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email" >
+            <div class="alert-danger p-2"
+            *ngIf="registerFormControl.email.touched && !registerFormControl.email.valid" >
+            <div *ngIf="registerFormControl.email.errors.required" style="color: red;">Email is required.</div> 
+            <div *ngIf="registerFormControl.email.errors.pattern" style="color: red;">Not Follow Email Pattern.</div>  
+            </div>
+          
+         
+        </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" formControlName="pwd" >
+        <div class="alert-danger p-2"
+            *ngIf="registerFormControl.pwd.touched && !registerFormControl.pwd.valid" >
+            <div *ngIf="registerFormControl.pwd.errors.required" style="color: red;">Password is required.</div> 
+            <div *ngIf="registerFormControl.pwd.errors.pattern" style="color: red;">Not Follow Password Pattern (must contain upper&lower char).</div>
+            <div *ngIf="registerFormControl.pwd.errors.minlength" style="color: red;">Min Length 6.</div>   
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select name="gender" class="form-control" id="gender" formControlName="gender" >
+            <option disabled="disabled" selected="selected">Choose Gender.</option>
+            <option>Male</option>
+            <option>Female</option>
+            
+        </select>
+        <div class="select-dropdown"></div>
+        <div class="alert-danger p-2"
+            *ngIf="registerFormControl.gender.touched && !registerFormControl.gender.valid" >
+            <div *ngIf="registerFormControl.gender.errors.required" style="color: red;">Gender is required.</div> 
+             
+        </div>
+        </div>
+      
+      <button type="submit" class="btn btn-primary" (click)="Move()" [routerLink]="['/home']" [disabled]="!ReactiveForm.valid">Submit</button>
+      
+    
+    </form>
+    </div>
+</div>

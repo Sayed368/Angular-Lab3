@@ -1,0 +1,16 @@
+<div class="container ">
+    <div class="row justify-content-center">write text and click search 
+                <div class="col-6 text-center"  >
+
+              <form class="form-inline my-2 my-lg-0 w-100" >
+                <input class="form-control mr-sm-2 w-75" (keyup)="getVal($event.target.value)"  type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary my-2 my-sm-0" (click)=sendParam()  type="submit">Search</button>
+              </form>
+
+            
+        </div>
+    </div>
+    <div class="row justify-content-center pt-2" >
+        <app-result [data]="data"></app-result>
+    </div>
+</div>

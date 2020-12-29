@@ -1,0 +1,59 @@
+<footer class="bg-primary text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <form action="" #sayedForm="ngForm" (ngSubmit)="onSubmitTemplateBased(sayedForm.value)">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-auto mb-4 mb-md-0">
+            <p class="pt-2"><strong>Sign up for our newsletter</strong></p>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-md-5 col-12 mb-4 mb-md-0">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form5Example2" class="form-control" 
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              required
+              minlength="5"
+              maxlength="50"
+              ngModel
+              name="email"
+              type="text"
+              #email="ngModel"/>
+              <label class="form-label" for="form5Example2">Email address</label>
+            </div>
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+              <div *ngIf="email.errors.required" style="color: red;">email is required.</div>
+              <div *ngIf="email.errors.minlength" style="color: red;">
+                email is minimum{{ email.errors.minlength.requiredLength }} character.
+              </div>
+              <div *ngIf="email.errors.pattern" style="color: red;">
+                follow email pattern (example@domain.com).
+              </div>
+          </div>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-auto mb-4 mb-md-0">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-light outline-success mb-4"  [disabled]="!sayedForm.valid">Subscribe</button>
+          </div>
+          
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-dark" href="#">sayed</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
